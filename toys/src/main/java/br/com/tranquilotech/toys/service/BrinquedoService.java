@@ -5,6 +5,8 @@ import br.com.tranquilotech.toys.dto.CadastroBrinquedoInputDTO;
 import br.com.tranquilotech.toys.repository.BrinquedoRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,5 +18,9 @@ public class BrinquedoService {
     public Brinquedo cadastrarBrinquedo(CadastroBrinquedoInputDTO dto) {
         Brinquedo brinquedo = modelMapper.map(dto, Brinquedo.class);
         return repository.save(brinquedo);
+    }
+
+    public Page<Brinquedo> obterBrinquedos(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 }
