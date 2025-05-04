@@ -1,11 +1,17 @@
 package br.com.tranquilotech.toys.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "TB_BRINQUEDOS")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Brinquedo {
     @Id @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id_brinquedo")
