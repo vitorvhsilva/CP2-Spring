@@ -14,8 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("brinquedos")
 @AllArgsConstructor
@@ -34,5 +32,11 @@ public class BrinquedoController {
     public Page<ObterBrinquedoDTO> obterBrinquedos(Pageable pageable) {
         Page<Brinquedo> brinquedos = brinquedoService.obterBrinquedos(pageable);
         return brinquedos.map(b -> mapper.map(b, ObterBrinquedoDTO.class));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ObterBrinquedoDTO> obterBrinquedoPorId(@PathVariable String id) {
+        Brinquedo brinquedo = brinquedoService.obterBrinquedoPorId(id);
+        return ResponseEntity.ok(mapper.map(brinquedo, ObterBrinquedoDTO.class));
     }
 }
