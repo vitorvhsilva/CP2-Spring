@@ -1,1 +1,11 @@
 Vitor Hugo da Silva - 558961
+
+https://github.com/vitorvhsilva/CP2-Spring
+
+{
+    "nome": "Hot Wheels",
+    "tipo": "INFANTIL",
+    "classificacao": "ELETRONICO",
+    "tamanho": 1.70,
+    "preco": 300
+}
